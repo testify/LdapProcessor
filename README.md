@@ -1,6 +1,8 @@
 LdapProcessor
 ========================
 *Testify Processor for interacting with the LDAP Protocol*
+
+[![Build Status](https://travis-ci.org/testify/LdapProcessor.svg?branch=master)](https://travis-ci.org/testify/LdapProcessor)
 # Usage
 ### LdapProcessor
   *Binds to a running ldap instance defined in `<endpoint></endpoint>`*
