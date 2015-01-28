@@ -40,11 +40,9 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- * The LdapProcessor class is a Testify TestProcessor service for interacting with the LDAP Protocol
- * @see org.codice.testify.processors.TestProcessor
+ * The LdapTestProcessor is a Testify TestProcessor service for adding ldif files to an LDAP server
  */
-
-public class LdapProcessor implements BundleActivator, TestProcessor {
+public class LdapTestProcessor implements BundleActivator, TestProcessor {
 
     private DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     private DocumentBuilder builder = null;
@@ -66,10 +64,8 @@ public class LdapProcessor implements BundleActivator, TestProcessor {
 
         // Extract each element from test block
         Element rootElement = document.getDocumentElement();
-        // Required Elements
-        String operation = getString("operation", rootElement);
 
-        // Optional Elements
+        // Required Elements
         String bindDn = getString("bindDn", rootElement);
         String password = getString("password", rootElement);
         String file = getString("file", rootElement);
@@ -98,7 +94,8 @@ public class LdapProcessor implements BundleActivator, TestProcessor {
             } catch (LDAPException e) {
                 TestifyLogger.error("Error occurred while attempting to create connection object: " + e.getMessage(), this.getClass().getSimpleName());
             }
-
+            
+            //Attempt to bind using the bindDn and password
             if (bindDn != null && password != null) {
                 TestifyLogger.info("Bind DN: " + bindDn, this.getClass().getSimpleName());
                 TestifyLogger.info("Password: " + password, this.getClass().getSimpleName());
@@ -109,15 +106,20 @@ public class LdapProcessor implements BundleActivator, TestProcessor {
                 }
             }
 
+            //The following is based on "http://stackoverflow.com/questions/21141106/ldif-bulk-import-programatically"
             int entriesRead = 0;
             int entriesAdded = 0;
             int errorsEncountered = 0;
             Entry entry;
+            
+            //Keep running this loop until something inside the loop breaks this
             while (true)
             {
                 try
                 {
                     entry = ldifReader.readEntry();
+                    
+                    //If the entry is null meaning that everything has been read, break the loop
                     if (entry == null)
                     {
                         TestifyLogger.debug("All ldif entries have been read", this.getClass().getSimpleName());
@@ -145,6 +147,8 @@ public class LdapProcessor implements BundleActivator, TestProcessor {
                 }
 
                 TestifyLogger.debug(entry.toLDIFString(), this.getClass().getSimpleName());
+                
+                //Add the returned entry to the result string
                 try
                 {
                     LDAPResult addResult = connection.add(entry);
@@ -159,8 +163,10 @@ public class LdapProcessor implements BundleActivator, TestProcessor {
                     errorsEncountered++;
                 }
             }
-
-        } finally{
+            
+        } finally {
+            
+            //Close out the reader
             try {
                 ldifReader.close();
             } catch (IOException e) {
@@ -169,13 +175,13 @@ public class LdapProcessor implements BundleActivator, TestProcessor {
         }
 
         return new Response(resultString);
-
     }
 
     @Override
     public void start(BundleContext bundleContext) throws Exception {
-        //Register the LdapProcessor service
-        bundleContext.registerService(TestProcessor.class.getName(), new LdapProcessor(), null);
+        
+        //Register the LdapTestProcessor service
+        bundleContext.registerService(TestProcessor.class.getName(), new LdapTestProcessor(), null);
     }
 
     @Override

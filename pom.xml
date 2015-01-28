@@ -24,17 +24,17 @@
   </parent>
  
   <groupId>org.codice.testify.processors</groupId>
-  <artifactId>ldapprocessor</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <artifactId>ldaptestprocessor</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
-  <name>Testify LDAP Processor</name>
-  <description>Testify Processor Service for interacting with the LDAP protocol</description>
+  <name>LDAP Test Processor</name>
+  <description>Testify Processor Service for adding ldif files to an LDAP server</description>
 
   <scm>
-    <connection>scm:git:https://github.com/testify/LdapProcessor.git</connection>
-    <developerConnection>scm:git:https://github.com/testify/LdapProcessor.git</developerConnection>
-    <url>https://github.com/testify/LdapProcessor.git</url>
+    <connection>scm:git:https://github.com/testify/LdapTestProcessor.git</connection>
+    <developerConnection>scm:git:https://github.com/testify/LdapTestProcessor.git</developerConnection>
+    <url>https://github.com/testify/LdapTestProcessor.git</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -78,7 +78,7 @@
                         <Bundle-Description>${project.description}</Bundle-Description>
                         <Bundle-Vendor>${project.organization.name}</Bundle-Vendor>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>org.codice.testify.processors.ldap.LdapProcessor</Bundle-Activator>
+                        <Bundle-Activator>org.codice.testify.processors.ldap.LdapTestProcessor</Bundle-Activator>
                         <Import-Package>
                             org.codice.testify.objects,
                             org.codice.testify.processors,
