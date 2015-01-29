@@ -10,5 +10,5 @@ branches:
   - travis
 env:
   global:
-  - secure: X72DhWUyoKDyCrxJmBI+DTrB8dH3BMS4KZ3a4Kx/jz3TrH8VzjDhF8prJvQkqp8r/cxLrW2CRUTtfxrfC/l73ul9P+8wUEMaZsSHppjC8OqThorOiPg53Hv1IbxJdkZ8bGsYgAs4M+n7pWhdxFLOaUoc5YURI2yfaUo7hgj1aRw=
-  - secure: J/pEHKvgt37k43UR0XUA/DUF8xJNzdjDq5boa5k9HIXE4scJgcpeVmjBkEkNjAf5yzEaLXHeS4hu1lr1l9mRTS6WUJCia8LHFh+eiIqrldi4/uK3vFYCqett1AoBgYHABhalwexv3xy0WaAQfccHjRqg0OiSSj2kzLX+h8ndiv0=
+  - secure: G+tS94YCK71lDAux7DMzsRJlkFvrevePKK5tK1SST8Q2RfSKnvi/T/3MDz+QVA0DYyGEPXLAe5Y56+sAFi1D7m9ZXslu3JtuZ7Ej3noI2ebPVNx8Q6av6luD5unqQypG2wySIKkdSZD044rNTeB6GSl8Nb95ZpzlkoKBD2OXmB0=
+  - secure: K35AHFehalJWvBcqZg81rVJU8FLj+QDrEkC87BGOSQcLyyb+dDf2+UTpOwkfMeyzH43XksMeNA5/hYJGxM9yzshZ6Co6cAnh3Fewd+DiQc/5guGoGeDsomKlu4NQM29Qxq89I8Y30/JmSVp/bKxcdynyEGuHvHMpyFc3I6w1JQs=
