@@ -25,7 +25,7 @@
  
   <groupId>org.codice.testify.processors</groupId>
   <artifactId>ldaptestprocessor</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>bundle</packaging>
 
   <name>LDAP Test Processor</name>
