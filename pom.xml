@@ -25,7 +25,7 @@
  
   <groupId>org.codice.testify.processors</groupId>
   <artifactId>ldaptestprocessor</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>bundle</packaging>
 
   <name>LDAP Test Processor</name>
@@ -35,7 +35,7 @@
     <connection>scm:git:https://github.com/testify/LdapTestProcessor.git</connection>
     <developerConnection>scm:git:https://github.com/testify/LdapTestProcessor.git</developerConnection>
     <url>https://github.com/testify/LdapTestProcessor.git</url>
-    <tag>HEAD</tag>
+    <tag>ldaptestprocessor-0.0.1</tag>
   </scm>
 
   <dependencies>
